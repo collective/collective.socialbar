@@ -1,0 +1,15 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:grouplookup="http://namespaces.inigo-tech.com/megaphonegrouplookup"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:browser="http://namespaces.zope.org/browser">
+
+    <browser:viewlet
+        name="collective.socialbar"
+        for="*"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+        template="viewlet.pt"
+        permission="zope.Public"
+        />
+
+</configure>
