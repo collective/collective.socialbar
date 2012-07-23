@@ -12,4 +12,13 @@
         permission="zope.Public"
         />
 
+
+    <browser:viewlet
+        name="collective.socialbar"
+        for="*"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+        template="viewlet.pt"
+        permission="zope.Public"
+        />
+
 </configure>
