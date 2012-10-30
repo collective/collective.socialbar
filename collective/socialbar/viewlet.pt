@@ -1,41 +1,30 @@
-<div id="collectivesocialbar">
+<div id="collectivesocialbar"
+    tal:define="portal context/@@plone_portal_state/portal;
+                resurl string:${portal/absolute_url}/++resource++collective.socialbar;
+                here_url context/absolute_url">
     <style>
-       #collectivesocialbar li { float:left }
+       #collectivesocialbar a img { height:24px }
     </style>
-
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-        fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-
-
-    <ul>
-        <li style="width:80px">
-        <div class="g-plusone"></div>
-        <script type="text/javascript">
-            (function() {
-             var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-             po.src = 'https://apis.google.com/js/plusone.js';
-             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-             })();
-        </script>
-        </li>
-
-
-        <li style="width:100px;">
-<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</li>
-
-<li style="width:100px">
-<div class="fb-like" tal:attributes="data-href context/absolute_url"
-    data-send="false" data-layout="button_count" data-width="135" data-show-faces="false" data-action="recommend"></div>
-</li>
-                </ul>
-
+    <script>
+        $(document).ready(function () {
+            $('#collectivesocialbar a').click(function (ev) {
+                ev.preventDefault();
+                window.open(this.href,
+                    'window',
+                    'width=500,height=200'
+                );
+                return false;
+            });
+        })
+    </script>
+    <a tal:attributes="href string:https://plus.google.com/share?url=${here_url}">
+        <img tal:attributes="src string:${resurl}/gplus.png"/>
+    </a>
+    <a tal:attributes="href string:http://www.facebook.com/sharer/sharer.php?u=${here_url}&t=${here_url}">
+        <img tal:attributes="src string:${resurl}/facebook.png"/>
+    </a>
+    <a tal:attributes="href string:http://twitter.com/intent/tweet?source=sharethiscom&text=${here_url}&url=${here_url}">
+        <img tal:attributes="src string:${resurl}/twitter.png"/>
+    </a>
      <div class="visualClear"></div>
 </div>

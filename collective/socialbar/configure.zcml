@@ -1,17 +1,8 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
-    xmlns:grouplookup="http://namespaces.inigo-tech.com/megaphonegrouplookup"
     xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:browser="http://namespaces.zope.org/browser">
-
-    <browser:viewlet
-        name="collective.socialbar"
-        for="*"
-        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
-        template="viewlet.pt"
-        permission="zope.Public"
-        />
-
 
     <browser:viewlet
         name="collective.socialbar"
@@ -19,6 +10,19 @@
         manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
         template="viewlet.pt"
         permission="zope.Public"
+        layer=".interfaces.IProductSpecific"
         />
+
+    <browser:resourceDirectory
+        name="collective.socialbar"
+        directory="resources"/>
+
+  <genericsetup:registerProfile
+        name="default"
+        title="collective.socialbar"
+        directory="profiles/default"
+        description="Simple social sharing bar for sharing to G+/Facebook/Twitter"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
 
 </configure>
