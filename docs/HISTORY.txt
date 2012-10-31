@@ -4,7 +4,7 @@ Changelog
 1.1 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- fix duplication of url when sharing to twitter
 
 
 1.0 (2012-10-30)

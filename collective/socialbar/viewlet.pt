@@ -23,7 +23,7 @@
     <a tal:attributes="href string:http://www.facebook.com/sharer/sharer.php?u=${here_url}&t=${here_url}">
         <img tal:attributes="src string:${resurl}/facebook.png"/>
     </a>
-    <a tal:attributes="href string:http://twitter.com/intent/tweet?source=sharethiscom&text=${here_url}&url=${here_url}">
+    <a tal:attributes="href string:http://twitter.com/intent/tweet?url=${here_url}">
         <img tal:attributes="src string:${resurl}/twitter.png"/>
     </a>
      <div class="visualClear"></div>
